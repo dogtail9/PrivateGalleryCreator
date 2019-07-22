@@ -1,3 +1,23 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: v1
+kind: Pod
 metadata:
+  name: mdev-vsix-feed
+  labels:
+    app: vsix
+spec:
+  containers:
+    - name: mdev-doc-nginx
+      image: nginx
+      volumeMounts:
+      - name: mdev-doc-storage
+        mountPath: /usr/share/nginx/html:ro
+      ports:
+        - containerPort: 80
+    - name: mdev-doc-privatgallerycreator
+      image: mdev/documentation:v0.1
+      volumeMounts:
+      - name: mdev-doc-storage
+        mountPath: /feed
+  volumes:
+  - name: mdev-doc-storage
+    emptyDir: {}
