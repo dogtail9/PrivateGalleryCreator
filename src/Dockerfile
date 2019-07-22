@@ -13,6 +13,7 @@ FROM build AS publish
 RUN dotnet publish "PrivateGalleryCreator.csproj" -c Release -o /app
 
 FROM base AS final
+WORKDIR /feed
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "PrivateGalleryCreator.dll", "-w"]
+ENTRYPOINT ["dotnet", "PrivateGalleryCreator.dll", "--input=/feed", "--output=/feed/mdev.xml", "--source=/", "-w"]
