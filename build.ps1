@@ -1,0 +1,1 @@
+docker build -t mdev/documentation:v0.1 -f src/Dockerfile .

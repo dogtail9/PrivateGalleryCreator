@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PrivateGalleryCreator": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
