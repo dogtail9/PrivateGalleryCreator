@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/o9t6axyr7n989v75?svg=true)](https://ci.appveyor.com/project/madskristensen/privategallerycreator)
 
-Download from [build server](https://ci.appveyor.com/project/madskristensen/privategallerycreator/build/artifacts)
+Download from [releases](https://github.com/madskristensen/PrivateGalleryCreator/releases)
 
 -----------------------------
 
@@ -42,8 +42,53 @@ PrivateGalleryCreator.exe -w
 
 The console app will not shut down but continously watch the directory for any new, updated or deleted .vsix files. To stop watching, either close the console or hit *Ctrl+C* to cancel out.
 
+## Name option
+If you would like a custom gallery name (instead of "VSIX Gallery") you can use the --name option:
+
+```cmd
+PrivateGalleryCreator.exe --name="My gallery name"
+```
+
+## Output option
+If you would like to have the output redirected (instead of the current directory) you can use the --output option:
+
+```cmd
+PrivateGalleryCreator.exe --output=c:\your\path\yourfeed.xml
+```
+
+## Input option
+If you would like to have the input directory set custom (instead of the current directory) you can use the --input option:
+
+```cmd
+PrivateGalleryCreator.exe --input=c:\your\input\path 
+```
+
+## Recursive option
+If you would like to have the all directories parsed for packages (instead of the current directory) you can use the --recursive option:
+
+```cmd
+PrivateGalleryCreator.exe --recursive
+```
+
+## Exclude option
+If you would like to have the particular folders, filenames skipped (instead of the using all packages found) you can use the --exclude option:
+
+```cmd
+PrivateGalleryCreator.exe --exclude=dontwantthis
+```
+
+## Source option
+Be default, the download source path used in the gallery will be the location where the .vsix files reside when running the PrivateGalleryCreator. If you intend to move the .vsix files after creating the feed, you can specify the intended download source path with the --source option:
+
+```cmd
+PrivateGalleryCreator.exe --source=c:\your\vsix\repository\
+```
+
 ## Good to know
 
 * Run the *PrivateGalleryCreator.exe* every time you add or update a .vsix in the directory
 * Visual Studio will by default auto-update extensions - including the ones from private galleries.
 * The feed support extensions for Visual Studio 2010 and newer
+
+## License
+[Apache 2.0](LICENSE)

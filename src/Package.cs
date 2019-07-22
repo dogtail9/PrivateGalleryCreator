@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace PrivateGalleryCreator
 {
 	public class Package
     {
-        public Package(string fileName)
+        public Package(string fileName, string fullSourcePath)
         {
-            FileName = Path.GetFileName(fileName);
+            FileName = fileName;
+            FullPath = fullSourcePath;
         }
 
         public string FileName { get; set; }
@@ -28,6 +28,8 @@ namespace PrivateGalleryCreator
         public string MoreInfoUrl { get; set; }
 		public string Repo { get; set; }
 		public string IssueTracker { get; set; }
+        public ExtensionList ExtensionList { get; set; }
+        public string FullPath { get; set; }
 
 		public override string ToString()
 		{
